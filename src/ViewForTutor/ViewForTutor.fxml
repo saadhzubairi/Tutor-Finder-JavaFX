@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="669.0" prefWidth="1020.0" styleClass="AnchorPane" stylesheets="@../CSS_Resources/Background.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewForTutor.Controller">
+   <children>
+      <Label fx:id="hdl" alignment="CENTER" contentDisplay="CENTER" layoutX="320.0" layoutY="63.0" prefHeight="44.0" prefWidth="380.0" styleClass="Label" stylesheets="@../CSS_Resources/Background.css" text="Students near you!">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="20.0" />
+         </font>
+      </Label>
+      <HBox fx:id="TopBar" prefHeight="34.0" prefWidth="1020.0" />
+      <JFXButton fx:id="show_pf_bt" layoutX="327.0" layoutY="548.0" prefHeight="44.0" prefWidth="167.0" styleClass="JFXButton" text="Show Profile" />
+      <JFXButton fx:id="view_self_bt" layoutX="526.0" layoutY="548.0" prefHeight="44.0" prefWidth="167.0" styleClass="JFXButton" text="View Your Profile" />
+      <HBox fx:id="BopBar" layoutY="635.0" prefHeight="34.0" prefWidth="1020.0" />
+      <TableView fx:id="tab" layoutX="55.0" layoutY="138.0" prefHeight="375.0" prefWidth="910.0" stylesheets="@../CSS_Resources/TableStyle.css">
+        <columns>
+          <TableColumn fx:id="name_col" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="age_col" prefWidth="75.0" text="Age" />
+            <TableColumn fx:id="gen_col" prefWidth="75.0" text="Gender" />
+            <TableColumn fx:id="class_col" prefWidth="71.0" text="Class" />
+            <TableColumn fx:id="board_col" prefWidth="75.0" text="Board" />
+            <TableColumn fx:id="loc_col" prefWidth="108.0" text="Location" />
+            <TableColumn fx:id="email_col" prefWidth="103.0" text="E-mail" />
+            <TableColumn fx:id="phone_col" prefWidth="108.0" text="Phone no." />
+            <TableColumn fx:id="lr_col" prefWidth="107.0" text="Last Results" />
+            <TableColumn fx:id="sq_col" prefWidth="112.0" text="Special Req." />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

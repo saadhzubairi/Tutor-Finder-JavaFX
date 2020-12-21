@@ -1,0 +1,133 @@
+.AnchorPane{
+    -fx-text-fill: white;
+    -fx-background-color:#1f212e;
+}
+
+.Label{
+    -fx-text-fill: white;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+.Label_Left{
+    -fx-text-fill: white;
+    -fx-text-alignment: left;
+    -fx-background-color: #2a2d3e;
+}
+
+.JFXButton{
+    -fx-text-fill: #2bc4af;
+    -fx-background-color: linear-gradient(#102a45, #07427c);
+    -fx-background-radius: 10;
+    -fx-alignment: center;
+    -jfx-button-type: RAISED;
+}
+.JFXButton:hover{
+    -fx-text-fill: white;
+    -fx-background-color: #22404b;
+    -fx-background-radius: 10;
+    -fx-border-width: 2px;
+    -fx-border-color: #2bc4af;
+    -fx-border-radius: 10;
+}
+.JFXButton:focused{
+    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(#22404b, #356177);
+    -fx-background-radius: 10;
+    -fx-border-width: 2px;
+    -fx-border-color: linear-gradient(#2b7dc4, #00ffe1);
+    -fx-border-radius: 10;
+}
+.JFXButton:pressed{
+    -fx-text-fill: black;
+    -fx-background-color: linear-gradient(#00dfb4, #007eff);
+    -fx-background-radius: 10;
+}
+.JFXButtonGLO:pressed{
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+    -fx-text-fill: white;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-background-color: #2bc4af;
+    -fx-border-width: 2px;
+    -fx-border-color: #2bc4af;
+}
+.JFXButtonGLO{
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+    -fx-text-fill: white;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-background-color: linear-gradient(#1f212e,#2a2d3e);
+    -fx-border-width: 2px;
+    -fx-border-color: #2bc4af;
+}
+
+.GridPane{
+    -fx-background-color: #232430;
+    -fx-background-radius: 20px;
+    -fx-border-width: 2px;
+}
+
+.jfx-text-field{
+    -jfx-focus-color: #2bc4af;
+    -jfx-unfocus-color: grey;
+    -fx-text-fill: white;
+    -fx-background-color: #232533;
+}
+.jfx-check-box{
+    -jfx-checked-color:#2bc4af;
+    -jfx-unchecked-color:grey;
+    -fx-alignment: center;
+    -fx-text-fill: #232430;
+}
+.jfx-combo-box {
+    -fx-text-inner-color: white;
+    -fx-prompt-text-fill: white;
+}
+.jfx-combo-box .cell {
+    -fx-background-color: #232533;
+    -fx-text-fill: white;
+    -fx-border-color: #232533;
+    -fx-border-width: 0;
+}
+.jfx-combo-box:hover {
+    -fx-background-color: #2f3144;
+    -fx-text-fill: white;
+}
+.jfx-toggle-button{
+    -jfx-toggle-color:#2bc4af;
+    -jfx-untoggle-color:grey;
+    -jfx-toggle-line-color: #1ca08c;
+    -jfx-untoggle-line-color: #5a5a5a;
+    -fx-text-fill: white;
+}
+
+#hdl{
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+    -fx-text-fill: white;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-background-color: linear-gradient(#1f212e,#2a2d3e);
+    -fx-border-width: 2px;
+    -fx-border-color: #2bc4af;
+}
+#TopBar{
+    -fx-background-color: #2a2d3e;
+}
+#BopBar{
+    -fx-background-color: #2a2d3e;
+}
+#closebt{
+    -fx-background-radius: 100;
+    -fx-background-color: linear-gradient(red,darkred);
+    -fx-text-alignment: center;
+    -fx-text-fill: white;
+}
+#minbt{
+    -fx-background-radius: 100;
+    -fx-background-color: linear-gradient(greenyellow, forestgreen);
+    -fx-text-alignment: center;
+    -fx-text-fill: white;
+}
