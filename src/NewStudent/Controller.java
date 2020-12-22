@@ -27,7 +27,7 @@ public class Controller implements Initializable {
     
     ObservableList<String> ages = FXCollections.observableArrayList("10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49");
     ObservableList<String> sexes = FXCollections.observableArrayList("Male", "Female", "Non-Binary");
-    ObservableList<String> locs = FXCollections.observableArrayList("Jauhar","Gulshan","Mosamiyat");
+    ObservableList<String> locs = FXCollections.observableArrayList("Gulshan", "Jauhar", "NIPA", "University Rd.", "Shahrah-e-Faisal", "Hill-top", "Safoora", "Korangi", "Defence", "Hijri", "Gizri", "New Town", "Tariq Road", "Gulberg", "FB. Area", "Nazimabad");
     ObservableList<String> boards = FXCollections.observableArrayList("O/A-Level","Sindh Board","Agha Khan Board");
     ObservableList<String> classes = FXCollections.observableArrayList("1","2","3","4","5","6","7","8","9","10","11","12");
     
