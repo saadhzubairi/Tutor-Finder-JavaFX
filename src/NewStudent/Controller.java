@@ -83,7 +83,7 @@ public class Controller implements Initializable {
                         e.printStackTrace();
                     }
                 }
-                System.out.println("Student Added\n"+st);
+                System.out.println("Student Added!\n");
                 closeButtonAction();
             }
         });
