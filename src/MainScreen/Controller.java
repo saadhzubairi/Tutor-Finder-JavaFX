@@ -7,7 +7,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.io.*;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -23,31 +26,20 @@ public class Controller implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+    
+        loads();
         
-        
-        /*/////////////////////////////////////////////////
-        Student s1 = new Student(0,"musadanna",13,"male",
-               "Lasdandhi","sxube@wqemgail.com", "0123asd213",
-               "1322","o",false,"nopetynasdasope","n/a");
-        Studs.add(s1);
-        Tutor t1 = new Tutor(0,"Bajan",123,"male",
-               "lool","gow","asdji","asd","asda",
-               false,"asda","asda",new boolean[3][12]);
-        Tuts.add(t1);
-        /////////////////////////////////////////////////////////*/
-        
-        
-        main_tut.setOnAction(new EventHandler<ActionEvent>() {
+        main_tut.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/NewExt/NewExT.fxml"));
-                    Parent root1 = (Parent) fxmlLoader.load();
-                    
+                    Parent root1 = fxmlLoader.load();
+    
                     /*Injecting Data to the New Or Existing ID Window*/
                     NewExt.Controller newextcon = fxmlLoader.getController();
                     newextcon.listinjector(Tuts, Studs);
-                    
+    
                     Stage stage = new Stage();
                     stage.setTitle("Tutor In");
                     stage.setScene(new Scene(root1));
@@ -58,16 +50,16 @@ public class Controller implements Initializable {
             }
         });
         
-        main_stud.setOnAction(new EventHandler<ActionEvent>() {
+        main_stud.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/NewExS/NewExS.fxml"));
-                    Parent root1 = (Parent) fxmlLoader.load();
+                    Parent root1 = fxmlLoader.load();
     
                     NewExS.Controller newextcon = fxmlLoader.getController();
                     newextcon.listinjector(Tuts, Studs);
-                    
+    
                     Stage stage = new Stage();
                     stage.setTitle("Student In");
                     stage.setScene(new Scene(root1));
@@ -77,18 +69,18 @@ public class Controller implements Initializable {
                 }
             }
         });
-        ;
         
-        add_new.setOnAction(new EventHandler<ActionEvent>() {
+        
+        add_new.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ADDStudORTut/StudORTut.fxml"));
-                    Parent root1 = (Parent) fxmlLoader.load();
-                    
+                    Parent root1 = fxmlLoader.load();
+    
                     ADDStudORTut.Controller con = fxmlLoader.getController();
                     con.listinjector(Tuts, Studs);
-                    
+    
                     Stage stage = new Stage();
                     stage.setTitle("New Entry");
                     stage.setScene(new Scene(root1));
@@ -100,20 +92,14 @@ public class Controller implements Initializable {
             }
         });
         
-        closebt.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                closeButtonAction();
-            }
+        closebt.setOnAction(event -> {
+            write();
+            closeButtonAction();
         });
         
-        minbt.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("\nStudents:\n\n" + Studs + "\n\n");
-                System.out.println("Tutors  :\n\n" + Tuts + "\n\n");
-                
-            }
+        minbt.setOnAction(event -> {
+            System.out.println("\nStudents:\n\n" + Studs + "\n\n");
+            System.out.println("Tutors  :\n\n" + Tuts + "\n\n");
         });
         
     }
@@ -123,8 +109,45 @@ public class Controller implements Initializable {
         stage.close();
     }
     
-    private void minButtonAction() {
-        Stage stage = (Stage) closebt.getScene().getWindow();
-        stage.setIconified(true);
+    public void write() {
+        try {
+            FileOutputStream fos = new FileOutputStream("Students.ser");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(Studs);
+            oos.close();
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+    
+    
+        try {
+            FileOutputStream fos = new FileOutputStream("Tutors.ser");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(Tuts);
+            oos.close();
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("SAVED");
+    }
+    
+    private void loads() {
+        try {
+            InputStream in = Files.newInputStream(Paths.get("Students.ser"));
+            ObjectInputStream ois = new ObjectInputStream(in);
+            this.Studs = (ArrayList<Student>) ois.readObject();
+        } catch (ClassNotFoundException | IOException e) {
+            e.printStackTrace();
+        }
+    
+        try {
+            InputStream in = Files.newInputStream(Paths.get("Tutors.ser"));
+            ObjectInputStream ois = new ObjectInputStream(in);
+            this.Tuts = (ArrayList<Tutor>) ois.readObject();
+        } catch (ClassNotFoundException | IOException e) {
+            e.printStackTrace();
+        }
+    
+        System.out.println("LOADED from Storage.");
     }
 }
