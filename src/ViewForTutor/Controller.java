@@ -84,6 +84,27 @@ public class Controller implements Initializable {
                 }
             }
         });
+        
+        show_pf_bt.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Student stu = (Student) tab.getSelectionModel().getSelectedItem();
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewStudent/ViewStudent.fxml"));
+                    Parent root1 = fxmlLoader.load();
+        
+                    ViewStudent.Controller newextcon = fxmlLoader.getController();
+                    newextcon.injectst(stu);
+                    
+                    Stage stage = new Stage();
+                    stage.setTitle("Student In");
+                    stage.setScene(new Scene(root1));
+                    stage.show();
+                }catch (Exception e) {
+                    System.out.println("ERROR LOADING WINDOW" + "\n" + e);
+                }
+            }
+        });
     }
     
     public static void adder(Tutor tu, ArrayList<Student> Studs, ObservableList<Student> studs){
