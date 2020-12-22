@@ -118,8 +118,7 @@ public class Controller implements Initializable {
         }catch (IOException e) {
             e.printStackTrace();
         }
-    
-    
+        
         try {
             FileOutputStream fos = new FileOutputStream("Tutors.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -147,7 +146,7 @@ public class Controller implements Initializable {
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
-    
+        
         System.out.println("LOADED from Storage.");
     }
 }

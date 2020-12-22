@@ -1,6 +1,8 @@
 package MainScreen;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable {
     int ID;
     String name;
     int age;

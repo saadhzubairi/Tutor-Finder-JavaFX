@@ -1,8 +1,9 @@
 package MainScreen;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Tutor extends Person {
+public class Tutor extends Person implements Serializable {
     String qual; /*Degree and shizzle*/
     String status; /*Currently employed or studying?*/
     boolean isHome; /*Is this a home tutor*/

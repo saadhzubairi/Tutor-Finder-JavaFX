@@ -4,10 +4,17 @@ import MainScreen.Tutor;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -27,6 +34,7 @@ public class Controller implements Initializable {
     public TableColumn<String, Student> sq_col;
     
     public JFXButton show_pf_bt;
+    public JFXButton view_self_bt;
     
     ArrayList<Tutor> Tuts = new ArrayList<>();
     ArrayList<Student> Studs = new ArrayList<>();
@@ -56,6 +64,26 @@ public class Controller implements Initializable {
         phone_col.  setCellValueFactory(new PropertyValueFactory<>("phone_no"));
         lr_col.     setCellValueFactory(new PropertyValueFactory<>("lastResult"));
         sq_col.     setCellValueFactory(new PropertyValueFactory<>("spec_req"));
+        
+        view_self_bt.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewTutor/ViewTutor.fxml"));
+                    Parent root1 = fxmlLoader.load();
+        
+                    ViewTutor.Controller newextcon = fxmlLoader.getController();
+                    newextcon.injectt(tu);
+        
+                    Stage stage = new Stage();
+                    stage.setTitle("Tutor Profile");
+                    stage.setScene(new Scene(root1));
+                    stage.show();
+                }catch (Exception e) {
+                    System.out.println("ERROR LOADING WINDOW" + "\n" + e);
+                }
+            }
+        });
     }
     
     public static void adder(Tutor tu, ArrayList<Student> Studs, ObservableList<Student> studs){

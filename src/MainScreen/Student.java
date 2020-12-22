@@ -1,8 +1,9 @@
 package MainScreen;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Student extends Person{
+public class Student extends Person implements Serializable {
     String classs;
     String board;
     boolean isHome;/*does he require tutor to come to his home*/
